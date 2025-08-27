@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Show Employee Data</title>
+</head>
+<body>
+<h1>Registered Employee Data</h1>
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Photo</th>
+        <th colspan="2">Operation</th>
+    </tr>
+    {% for i in data %}
+    <tr >
+        <td>{{i.id}}</td>
+        <td>{{i.fname}}</td>
+        <td>{{i.lname}}</td>
+        <td>
+            <figure>
+                <img src="{{ i.photo }}" alt="emp photo" height="100"/>
+            </figure>
+        </td>
+        <td>
+            <a href="/edit_emp?id={{i.id}}">Edit</a>
+        </td>
+        <td>
+            <a href="/delete_emp?id={{i.id}}">Delete</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+</body>
+</html>
+

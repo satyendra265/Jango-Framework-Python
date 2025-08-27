@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Employee Data</title>
+</head>
+<body>
+<h3> Edit Data Form</h3>
+{% for i in data %}
+<form action="updateEmp" method="POST" enctype="multipart/form-data">
+        {%csrf_token%}
+        <table>
+            <tr>
+            <td>ID :</td>
+            <td><input type="text" name="id" placeholder="ID"  id="id" value="{{i.id}}" style="width:160px"/></td>
+            </tr>
+            <tr>
+            <td>First Name :</td>
+            <td><input type="text" name="fname" placeholder="First Name"  id="First Name" value="{{i.fname}}" style="width:160px"/></td>
+            </tr>
+            <tr>
+            <td>Last Name :</td>
+            <td><input type="text" name="lname" placeholder="Last Name"  id="Last Name" value="{{i.lname}}" style="width:160px"/></td>
+            </tr>
+            <tr>
+            <td>Select Photo to upload :</td>
+            <td><input type="file" name="photo" style="width:300px"/></td>
+            </tr>
+            <tr>
+                <td><button type="submit">Update Data</button></td>
+            </tr>
+        </table>
+</form>
+{% endfor %}
+</body>
+</html>

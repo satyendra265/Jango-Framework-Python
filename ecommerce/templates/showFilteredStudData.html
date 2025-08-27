@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registered Students</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        form {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #333;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #ddd;
+        }
+
+        td a {
+            display: inline-block;
+            padding: 5px 10px;
+            text-decoration: none;
+            color: #333;
+            border: 1px solid #333;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        td a:hover {
+            background-color: #333;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Registered Students Data</h1>
+    <form action="filterStud" method="POST">
+        {% csrf_token %}
+        <input type="text" name="searchname" placeholder="Search by Name">
+        <button type="submit">Search</button>
+    </form>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Password</th>
+                <th colspan="2">Operation</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in data %}
+            <tr>
+                <td>{{ i.id }}</td>
+                <td>{{ i.fname }}</td>
+                <td>{{ i.lname }}</td>
+                <td>{{ i.email }}</td>
+                <td>{{ i.password }}</td>
+                <td><a href="/edit_stud?id={{ i.id }}">Edit</a></td>
+                <td><a href="/delete_stud?id={{ i.id }}">Delete</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

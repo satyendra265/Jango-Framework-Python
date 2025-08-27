@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scalae=1.0">
+    <title>Administration</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            font-family : Arial, sans-serif;
+            margin : 0;
+            padding : 0;
+        }
+        header {
+            background-color : #BE3455;
+            color : white;
+            text-align : center;
+        }
+        nav a {
+            color : white;
+        }
+        footer {
+            bottom : 0;
+        }
+        /* Flexbox styles */
+        .flex-container {
+            display: flex;
+            flex-wrap: wrap; /* Allow items to wrap to next line */
+            justify-content: space-around; /* Horizontally distribute items with space around */
+        }
+        .flexbox {
+            width: 30%; /* Adjust width of each flexbox */
+            margin-bottom: 20px; /* Optional: Add margin for spacing */
+            border: 1px solid #ccc; /* Optional: Add a border for visualization */
+            padding: 10px; /* Optional: Add padding for spacing */
+        }
+    </style>
+</head>
+<body>
+
+<header class="container-fluid p-5 my-5 bg-#BE3455 text-white">
+    <h1 class="Heading">Online Restaurant</h1> <h2>Welcome {{ name }}</h2><br>
+    <nav>
+        <a href="#" style="padding-right : 20px; padding-left : 20px;">Menu</a>
+        <a href="#" style="padding-right : 20px; padding-left : 20px;">Cart</a>
+        <a href="#" style="padding-right : 20px; padding-left : 20px;">About Us</a>
+        <a href="AddMenuItem" style="padding-right : 20px; padding-left : 20px;">Add Item In Menu</a>
+        <a href="manageUsers" style="padding-right : 20px; padding-left : 20px;">Manage Users</a>
+        <a href="userLogout" style="padding-right : 20px; padding-left : 20px;">Logout</a>
+    </nav>
+</header>
+{% include 'msg.html' %}
+
+
+<form action="" method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <br>
+    <button type="submit" class="btn btn-primary">Update</button>
+</form>
+
+<footer>
+    <p>&copy; 2024 Online Restaurant. All rights reserved.</p>
+</footer>
+<script>
+    setTimeout(function(){
+      if ($('#msg').length > 0) {
+        $('#msg').remove();
+      }
+    }, 3000)
+  </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Student Data</title>
+</head>
+<body>
+<h3> Edit Data Form</h3>
+{% for i in data %}
+<form action="updateStud" method="POST">
+        {%csrf_token%}
+        <table>
+            <tr>
+            <td>ID :</td>
+            <td><input type="text" name="id" placeholder="ID"  id="id" value="{{i.id}}" style="width:160px"/></td>
+            </tr>
+            <tr>
+            <td>First Name :</td>
+            <td><input type="text" name="fname" placeholder="First Name"  id="First Name" value="{{i.fname}}" style="width:160px"/></td>
+            </tr>
+            <tr>
+            <td>Last Name :</td>
+            <td><input type="text" name="lname" placeholder="Last Name"  id="Last Name" value="{{i.lname}}" style="width:160px"/></td>
+            </tr>
+            <tr>
+            <td>Email :</td>
+            <td><input type="text" name="email" placeholder="Email"  id="Email" value="{{i.email}}" style="width:160px"/></td>
+            </tr>
+            <tr>
+            <td>Password :</td>
+            <td><input type="password" name="pass" placeholder="Password"  id="Password" value="{{i.password}}" style="width:160px"/></td>
+            </tr>
+            <tr>
+                <td><button type="submit">Update Data</button></td>
+            </tr>
+        </table>
+</form>
+{% endfor %}
+</body>
+</html>

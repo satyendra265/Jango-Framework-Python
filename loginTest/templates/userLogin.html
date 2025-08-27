@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .message-container {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #ffc107; /* Yellow background color */
+      color: #333; /* Text color */
+      padding: 10px 20px; /* Padding around the message */
+      border-radius: 8px; /* Rounded corners */
+      box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1); /* Drop shadow */
+    }
+
+    .login-container {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+    }
+
+    .login-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    form {
+      text-align: center;
+    }
+
+    label {
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin: 5px 0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    input[type="submit"] {
+      width: 100%;
+      background-color: #4caf50;
+      color: white;
+      padding: 10px 0;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+
+    .login-container h6 {
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .login-container h6 a {
+      color: #007bff;
+      text-decoration: none;
+    }
+
+    .login-container h6 a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <!-- Styling the div containing the message -->
+  <div class="message-container">
+    {% include 'msg.html' %}
+  </div>
+
+  <div class="login-container">
+    <h2>Login</h2>
+    <form action="" method="POST">
+      {% csrf_token %}
+      <!--    {{form.as_p}}-->
+    {% csrf_token %}
+    <table>
+        {% for fm in form %}
+        <tr>
+            <td><label for="{{ fm.id_for_label }}">{{ fm.label }}</label></td>
+            <td> : </td>
+            <td>{{ fm }} {{ fm.errors }}</td>
+        </tr>
+    {% endfor %}
+      <tr>
+        <td><input type="submit" value="Login"></td>
+      </tr>
+    </table>
+    </form>
+    <h6>
+      <a href="index">Go Back To Index Page</a>
+    </h6>
+  </div>
+
+  <script>
+    setTimeout(function(){
+      if ($('#msg').length > 0) {
+        $('#msg').remove();
+      }
+    }, 3000)
+  </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculator</title>
+</head>
+<body>
+    <form action="Cal" method="post">
+        {%csrf_token%}
+        <table>
+            <tr>
+            <td>Number 1 :</td>
+            <td><input type="text" name="num1" placeholder="Number 1" value="{{num1}}" id="Number 1" style="width:160px"/></td>
+            </tr>
+            <tr>
+            <td>Number 2 :</td>
+            <td><input type="text" name="num2" placeholder="Number 2" value="{{num2}}" id="Number 2" style="width:160px"/></td>
+            </tr>
+            <tr>
+                <td>
+                    <select name="op">
+                        <option value="Add">Addition</option>
+                        <option value="Sub">Subtraction</option>
+                        <option value="Mul">Multiplication</option>
+                        <option value="Div">Division</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><button type="submit">Add</button></td>
+            </tr>
+            <tr>
+                <td><input type="text" name="output" placeholder="output" value="{{output}}"></td>
+            </tr>
+        </table>
+
+    </form>
+</body>
+</html>

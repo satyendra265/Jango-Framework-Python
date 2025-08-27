@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Continue or Cancel Prompt</title>
+    <script>
+        function confirmAction(link) {
+            var confirmation = confirm("Do you want to continue?");
+            if (confirmation) {
+                alert("You chose to continue!");
+                // Navigate to the link
+                window.location.href = link;
+            } else {
+                alert("You chose to cancel.");
+                // Do nothing when canceled
+            }
+        }
+    </script>
+</head>
+<body>
+    <a href="https://example.com" onclick="confirmAction(this.href); return false;">Continue or Cancel</a>
+</body>
+</html>

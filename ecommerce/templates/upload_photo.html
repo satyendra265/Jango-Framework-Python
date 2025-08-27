@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Upload Photo</title>
+</head>
+<body>
+<form action="uploadPhoto" method="POST" enctype="multipart/form-data">
+        {%csrf_token%}
+        <table>
+            <tr>
+            <td>First Name :</td>
+            <td><input type="text" name="fname" placeholder="First Name"  id="First Name" style="width:300px"/></td>
+            </tr>
+            <tr>
+            <td>Last Name :</td>
+            <td><input type="text" name="lname" placeholder="Last Name"  id="Last Name" style="width:300px"/></td>
+            </tr>
+            <tr>
+            <td>Select Photo to upload :</td>
+            <td><input type="file" name="photo" style="width:300px"/></td>
+            </tr>
+            <tr>
+                <td><button type="submit">Upload</button></td>
+            </tr>
+        </table>
+</form>
+</body>
+</html>

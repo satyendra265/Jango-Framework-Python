@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Registration</title>
+</head>
+<body>
+<form action="Register" method="POST">
+        {%csrf_token%}
+        <table>
+            <tr>
+            <td>First Name :</td>
+            <td><input type="text" name="fname" placeholder="First Name"  id="First Name" style="width:160px"/></td>
+            </tr>
+            <tr>
+            <td>Last Name :</td>
+            <td><input type="text" name="lname" placeholder="Last Name"  id="Last Name" style="width:160px"/></td>
+            </tr>
+            <tr>
+            <td>Email :</td>
+            <td><input type="text" name="email" placeholder="Email"  id="Email" style="width:160px"/></td>
+            </tr>
+            <tr>
+            <td>Password :</td>
+            <td><input type="password" name="pass" placeholder="Password"  id="Password" style="width:160px"/></td>
+            </tr>
+            <tr>
+                <td><button type="submit">Add</button></td>
+            </tr>
+        </table>
+</body>
+</html>
